@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: List CAT TAG
+Plugin Name: List Posts
 Plugin URI: https://example.com/plugins/list-posts
 Description: A plugin that lists the categories and tags of the last 10 posts and exports them to a CSV file.
 Version: 1.0.0
