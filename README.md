@@ -2,9 +2,10 @@
 
 Here's a high-level overview of how you can create a Wordpress plugin called "list posts" that lists the categories and tags of the last 10 posts and exports them to a CSV file:
 
-Start by creating a new plugin folder and file in the wp-content/plugins directory of your Wordpress installation. For example, you could name the folder list-posts and the main file list-posts.php.
+1. Start by creating a new plugin folder and file in the `wp-content/plugins` directory of your Wordpress installation. For example, you could name the folder list-posts and the main file list-posts.php.
 
-In the main plugin file, define the plugin's basic information such as its name, version, and description using Wordpress' plugin header comment block. You can also use this block to define any dependencies that your plugin may have.
+2. In the main plugin file, define the plugin's basic information such as its name, version, and description using Wordpress' plugin header comment block. You can also use this block to define any dependencies that your plugin may have.
+
 ```
 <?php
 /*
@@ -19,7 +20,7 @@ Text Domain: list-posts
 */
 ```
 
-Next, create a new class for your plugin and define its basic structure. In this class, you can add methods to handle various tasks such as registering settings, creating the custom admin screen, and exporting the data to a CSV file.
+3. Next, create a new class for your plugin and define its basic structure. In this class, you can add methods to handle various tasks such as registering settings, creating the custom admin screen, and exporting the data to a CSV file.
 
 ```
 class List_Posts {
@@ -38,7 +39,7 @@ class List_Posts {
 }
 
 ```
-In the __construct() method, register any settings that your plugin uses. For example, you can register a setting to store the number of posts to list.
+4. In the `__construct()` method, register any settings that your plugin uses. For example, you can register a setting to store the number of posts to list.
 
 ```
 public function __construct() {
@@ -50,8 +51,8 @@ public function __construct() {
 }
 
 ```
-In the create_admin_screen() method, create the custom admin screen for your plugin. This screen should display the categories and tags of the last 10 posts, as well as an export to CSV button.
 
+5. In the `create_admin_screen()` method, create the custom admin screen for your plugin. This screen should display the categories and tags of the last 10 posts, as well as an export to CSV button.
 
 ```
 public function create_admin_screen() {
@@ -74,11 +75,10 @@ public function create_admin_screen() {
             </thead>
             <tbody>
                 <?php
-                $num_posts = get_option( 'list_posts_num_posts', 10 );
-
-               
+                $num_posts = get_option( 'list_posts_num_posts', 10 );              
  ```
-To populate the table with the last 10 posts' categories and tags, you can use the get_posts() function to retrieve the posts and then use the get_the_category() and get_the_tags() functions to get the categories and tags for each post.
+
+6. To populate the table with the last 10 posts' categories and tags, you can use the `get_posts()` function to retrieve the posts and then use the `get_the_category()` and `get_the_tags()` functions to get the categories and tags for each post.
 
 ```
 public function create_admin_screen() {
@@ -148,8 +148,8 @@ public function create_admin_screen() {
 }
 ```
 
-
-Finally, in the export_to_csv() method, you can retrieve the same data as in the `create_admin_screen
+7. Finally, in the `export_to_csv()` method, you can retrieve the same data as in the `create_admin_screen` method, but this time format it as a CSV file and output it to the user's browser.
+ 
 ```
 public function export_to_csv() {
   // Check if the user has the required permissions
@@ -208,8 +208,7 @@ public function export_to_csv() {
 }
 ```
 
-To actually display the custom admin screen and handle the export to CSV action, you can use Wordpress' admin_menu and admin_post actions.
-
+8. To actually display the custom admin screen and handle the export to CSV action, you can use Wordpress `admin_menu` and `admin_post` actions.
 
 ```
 function list_posts_admin_menu() {
@@ -231,6 +230,7 @@ function list_posts_export() {
 }
 add_action( 'admin_post_list_posts_export', 'list_posts_export' );
 ```
+
 And that's it! This should be a good starting point for creating a Wordpress plugin that lists the categories and tags of the last 10 posts and tags.
 
 
