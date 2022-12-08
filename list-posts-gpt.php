@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: List Posts
-Plugin URI: https://example.com/plugins/list-posts
+Plugin URI: https://localhost/plugins/list-posts
 Description: A plugin that lists the categories and tags of the last 10 posts and exports them to a CSV file.
 Version: 1.0.0
-Author: John Doe
-Author URI: https://example.com
+Author: Italo Mariano GPT
+Author URI: https://www.linkedin.com/in/italomsr/
 License: GPLv2 or later
 Text Domain: list-posts
 */
