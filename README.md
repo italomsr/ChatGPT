@@ -10,7 +10,7 @@ Here's a high-level overview of how you can create a Wordpress plugin called "li
 <?php
 /*
 Plugin Name: List Posts
-Plugin URI: https://localhost/plugins/list-posts
+Plugin URI: https://github.com/italomsr/gtp-plugin-list-posts
 Description: A plugin that lists the categories and tags of the last 10 posts and exports them to a CSV file.
 Version: 1.0.0
 Author: Italo Mariano GPT
